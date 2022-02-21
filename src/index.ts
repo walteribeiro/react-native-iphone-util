@@ -30,7 +30,7 @@ const isIphoneScreen61 = () => checkDimensions(390, 844)
 // 6.7: 12 Pro Max, 13 Pro Max
 const isIphoneScreen67 = () => checkDimensions(428, 926)
 
-function getIphoneStatusBarHeight(safe: boolean) {
+function getIphoneStatusBarHeight(safe?: boolean) {
   if (isIphone()) {
     if (!safe) {
       return 30
@@ -48,7 +48,7 @@ function getIphoneStatusBarHeight(safe: boolean) {
   return 20
 }
 
-export function getStatusBarHeight(safe: boolean) {
+export function getStatusBarHeight(safe?: boolean) {
   return Platform.select({
     ios: getIphoneStatusBarHeight(safe),
     android: StatusBar.currentHeight,
